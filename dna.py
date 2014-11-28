@@ -54,8 +54,8 @@ def hamngdist(s,t):
     ##             of the same length
     ##
     
-    if(len(s1) != len(s1)):
-        raise Exception('The two strings are not the same length.')
+    if(len(s) != len(t)):
+        raise Exception('The two strands not the same length.')
         
     h, i = 0, 0
     
