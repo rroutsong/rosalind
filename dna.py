@@ -36,3 +36,32 @@ def fasta_parse(fasta_data):
         # join all sequence lines to one.
         seq = "".join(s.strip() for s in faiter.next())
         yield header, seq
+        
+def fib_num(n, k):
+    ## Fibonacci rabbits sequence,
+    ## where n = numbers of months,
+    ## and k = liters per pair of breeding rabbits
+    
+    a, b = 1, 1
+    for _ in xrange(n):
+        yield a 
+        a, b = b, (k*a) + b
+        
+def hamngdist(s,t):
+    ## Calculate the hamming distance between two strings:
+    ##
+    ## dh(s1,s1) = number of differing nucleotides between two strands
+    ##             of the same length
+    ##
+    
+    if(len(s1) != len(s1)):
+        raise Exception('The two strings are not the same length.')
+        
+    h, i = 0, 0
+    
+    for nuc in s:
+        if(s[i] != t[i]):
+            h+=1
+        i+=1
+    
+    return h
