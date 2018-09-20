@@ -19,7 +19,14 @@ An example of a length 21 DNA string (whose alphabet contains the symbols 'A', '
 [Python solution](solution1.py)
 
 ```python
-require '../lib/dna'
+import sys, os
+sys.path.insert(1, os.path.join(sys.path[0], '../lib'))
 
+# load dna tools library
+import dna
 
+dataset = open('datasets/problem1/rosalind_dna.txt')
+strand = dataset.read()
+
+print(dna.countnuc(strand))
 ```
