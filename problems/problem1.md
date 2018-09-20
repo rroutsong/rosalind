@@ -8,15 +8,15 @@ An example of a length 21 DNA string (whose alphabet contains the symbols 'A', '
 
 *Return: Four integers (separated by spaces) counting the respective number of times that the symbols 'A', 'C', 'G', and 'T' occur in s.*
 
-> __Sample Dataset__
+> __Sample Dataset__  
 > AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
 
-> __Sample Output__
+> __Sample Output__  
 > 20 12 17 21
 
 # Solution
 
-[Python solution](solution1.py)
+[Solution file](solution1.py)
 
 ```python
 import sys, os
