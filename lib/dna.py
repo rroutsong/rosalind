@@ -1,6 +1,12 @@
 from itertools import groupby
 
 def countnuc(strand):
+    ##
+    ## Count the number of each nucleotides in a given strand of DNA/RNA
+    ##
+    ## strand - string - Strand of DNA/RNA.
+    ##
+
     anuc, tnuc, cnuc, gnuc, unuc = 0, 0, 0, 0, 0
     strand = strand.upper()
 
@@ -27,6 +33,12 @@ def countnuc(strand):
     return counts
 
 def revcomp(strand):
+    ##
+    ## Determine the reverse comploment strand to a given DNA strand.
+    ##
+    ## strand - string - DNA strand you want reverse comploment of.
+    ##
+
     nuc = {
         'A': 'T',
         'T': 'A',
@@ -34,14 +46,108 @@ def revcomp(strand):
         'G': 'C'
     }
 
-    reverse = ''
+    strand.upper()
+
+    comp = ''
 
     for char in strand:
-        reverse += nuc[char]
+        comp += nuc[char]
 
-    return reverse[::-1]
+    revcomp = comp[::-1]
+    return revcomp
+
+def translate(rna):
+    ##
+    ## Translate a given strand of rna into a sequence of proteins identified by their abbreviated letter
+    ##
+    ## rna - string - RNA strand to translate into protein residues
+    ##
+
+    codons = {
+        'UUU': 'F',
+        'CUU': 'L',
+        'AUU': 'I',
+        'GUU': 'V',
+        'UUC': 'F',
+        'CUC': 'L',
+        'AUC': 'I',
+        'GUC': 'V',
+        'UUA': 'L',
+        'CUA': 'L',
+        'AUA': 'I',
+        'GUA': 'V',
+        'UUG': 'L',
+        'CUG': 'L',
+        'AUG': 'M',
+        'GUG': 'V',
+        'UCU': 'S',
+        'CCU': 'P',
+        'ACU': 'T',
+        'GCU': 'A',
+        'UCC': 'S',
+        'CCC': 'P',
+        'ACC': 'T',
+        'GCC': 'A',
+        'UCA': 'S',
+        'CCA': 'P',
+        'ACA': 'T',
+        'GCA': 'A',
+        'UCG': 'S',
+        'CCG': 'P',
+        'ACG': 'T',
+        'GCG': 'A',
+        'UAU': 'Y',
+        'CAU': 'H',
+        'AAU': 'N',
+        'GAU': 'D',
+        'UAC': 'Y',
+        'CAC': 'H',
+        'AAC': 'N',
+        'GAC': 'D',
+        'UAA': 'Stop',
+        'CAA': 'Q',
+        'AAA': 'K',
+        'GAA': 'E',
+        'UAG': 'Stop',
+        'CAG': 'Q',
+        'AAG': 'K',
+        'GAG': 'E',
+        'UGU': 'C',
+        'CGU': 'R',
+        'AGU': 'S',
+        'GGU': 'G',
+        'UGC': 'C',
+        'CGC': 'R',
+        'AGC': 'S',
+        'GGC': 'G',
+        'UGA': 'Stop',
+        'CGA': 'R',
+        'AGA': 'R',
+        'GGA': 'G',
+        'UGG': 'W',
+        'CGG': 'R',
+        'AGG': 'R',
+        'GGG': 'G'
+    }
+
+    rna.upper()
+    protein = ''
+
+    i = 0
+    while i < len(rna):
+        residue = rna[i:(i+3)]
+        if codons[residue] != 'Stop':
+            protein += codons[residue]
+        i+=3
+
+    print(protein)
 
 def gc_content(dna):
+    ##
+    ## Determine the gc content of a string of DNA.
+    ##
+    ## dna - string - strand of dna
+    ##
     gsandcs = 0.0
 
     for char in dna:
@@ -53,6 +159,13 @@ def gc_content(dna):
     return gc_per
 
 def fasta_parse(fasta_data):
+    ##
+    ## Quick parse a fasta file. Just returns header and sequence
+    ## Could expand in the future.
+    ##
+    ## fasta_data - string - file location
+    ##
+
     # input should be a local file location
     fo = open(fasta_data)
     faiter = (x[1] for x in groupby(fo, lambda line: line[0] == ">"))
@@ -64,6 +177,7 @@ def fasta_parse(fasta_data):
         yield header, seq
 
 def fib_num(n, k):
+    ##
     ## Fibonacci rabbits sequence,
     ## where n = numbers of months,
     ## and k = liters per pair of breeding rabbits
