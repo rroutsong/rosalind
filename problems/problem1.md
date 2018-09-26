@@ -19,14 +19,34 @@ An example of a length 21 DNA string (whose alphabet contains the symbols 'A', '
 [Solution file](solution1.py)
 
 ```python
-import sys, os
-sys.path.insert(1, os.path.join(sys.path[0], '../lib'))
+def countnuc(strand):
+    anuc, tnuc, cnuc, gnuc, unuc = 0, 0, 0, 0, 0
+    strand = strand.upper()
 
-# load dna tools library
-import dna
+    for c in strand:
+        if c == "A":
+            anuc += 1
+        if c == "T":
+            tnuc += 1
+        if c == "C":
+            cnuc += 1
+        if c == "G":
+            gnuc += 1
+        if c == "U":
+            unuc += 1
 
-dataset = open('datasets/problem1/rosalind_dna.txt')
+    # account for RNA strand as well
+    if(tnuc == 0):
+        tu_nuc = unuc
+    else:
+        tu_nuc = tnuc
+
+    counts = str(anuc) + " " + str(cnuc) + " " + str(gnuc) + " " + str(tu_nuc)
+
+    return counts
+
+dataset = open('path/to/rosalind/dataset')
 strand = dataset.read()
 
-print(dna.countnuc(strand))
+print(countnuc(strand))
 ```

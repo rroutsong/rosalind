@@ -8,6 +8,8 @@ def countnuc(strand):
     ##
 
     anuc, tnuc, cnuc, gnuc, unuc = 0, 0, 0, 0, 0
+	
+	# ensure no case issues
     strand = strand.upper()
 
     for c in strand:
@@ -23,6 +25,7 @@ def countnuc(strand):
             unuc += 1
 
     # account for RNA strand as well
+	# potential to raise exception here if both tnuc and unuc != 0
     if(tnuc == 0):
         tu_nuc = unuc
     else:
@@ -36,9 +39,10 @@ def revcomp(strand):
     ##
     ## Determine the reverse comploment strand to a given DNA strand.
     ##
-    ## strand - string - DNA strand you want reverse comploment of.
+    ## strand - string - DNA strand you want to generate reverse complement of
     ##
 
+	# define dictionary of complements
     nuc = {
         'A': 'T',
         'T': 'A',
@@ -53,6 +57,8 @@ def revcomp(strand):
     for char in strand:
         comp += nuc[char]
 
+	# comp is 3'->5' direction, problem expects 5'->3' (as do all usual genomics questions)
+	# must reverse the entire string to present in correct direction
     revcomp = comp[::-1]
     return revcomp
 
