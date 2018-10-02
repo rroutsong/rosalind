@@ -7,10 +7,10 @@ The reverse complement of a DNA string s is the string sc formed by reversing th
 
 *Return*: The reverse complement sc of s.
 
-> __Sample Dataset__
+> __Sample Dataset__  
 > AAAACCCGGT
 
-> __Sample Output__
+> __Sample Output__  
 > ACCGGGTTTT
 
 # Solution

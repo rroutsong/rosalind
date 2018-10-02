@@ -9,10 +9,10 @@ When finding the n-th term of a sequence defined by a recurrence relation, we ca
 
 *Return*: The total number of rabbit pairs that will be present after n months, if we begin with 1 pair and in each generation, every pair of reproduction-age rabbits produces a litter of k rabbit pairs (instead of only 1 pair).
 
-> __Sample Dataset__
+> __Sample Dataset__  
 > 5 3
 
-> __Sample Output__
+> __Sample Output__  
 > 19
 
 # Solution

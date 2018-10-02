@@ -7,10 +7,10 @@ Given a DNA string t corresponding to a coding strand, its transcribed RNA strin
 
 *Return*: The transcribed RNA string of t.
 
-> __Sample Dataset__
+> __Sample Dataset__  
 > GATGGAACTTGACTACGTAAATT
 
-> __Sample Output__
+> __Sample Output__  
 > GAUGGAACUUGACUACGUAAAUU
 
 # Solution

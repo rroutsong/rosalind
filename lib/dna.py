@@ -142,6 +142,8 @@ def translate(rna):
     i = 0
     while i < len(rna):
         residue = rna[i:(i+3)]
+		# a good check here would be to make sure that you have 3 alpha chars
+		# maybe modulus len(rna) by 3?
         if codons[residue] != 'Stop':
             protein += codons[residue]
         i+=3
@@ -153,7 +155,8 @@ def gc_content(dna):
     ## Determine the gc content of a string of DNA.
     ##
     ## dna - string - strand of dna
-    ##
+    ## gc content - percentage - percent of guanine and cytocine residues present in DNA strand
+	## 
     gsandcs = 0.0
 
     for char in dna:
