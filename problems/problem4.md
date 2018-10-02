@@ -20,4 +20,14 @@ When finding the n-th term of a sequence defined by a recurrence relation, we ca
 [Solution file](solution4.py)
 
 ```python
+def rab_pairs(n, k):
+    a, b = 1, 1
+    for _ in xrange(n):
+        yield a
+        a, b = b, (k*a) + b
+
+breeding_pairs = 5
+months = 3
+
+print(rab_pairs(months, breeding_pairs))
 ```
